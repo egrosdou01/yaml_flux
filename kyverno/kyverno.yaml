@@ -4,12 +4,12 @@ apiVersion: v1
 kind: ServiceAccount
 metadata:
   name: kyverno-admission-controller
-  namespace: default
+  namespace: kyverno
   labels:
     app.kubernetes.io/component: admission-controller
-    app.kubernetes.io/instance: release-name
+    app.kubernetes.io/instance: eleni-kyverno-release
     app.kubernetes.io/managed-by: Helm
-    app.kubernetes.io/part-of: release-name-kyverno
+    app.kubernetes.io/part-of: eleni-kyverno-release
     app.kubernetes.io/version: 3.1.4
     helm.sh/chart: kyverno-3.1.4
 ---
@@ -18,12 +18,12 @@ apiVersion: v1
 kind: ServiceAccount
 metadata:
   name: kyverno-background-controller
-  namespace: default
+  namespace: kyverno
   labels:
     app.kubernetes.io/component: background-controller
-    app.kubernetes.io/instance: release-name
+    app.kubernetes.io/instance: eleni-kyverno-release
     app.kubernetes.io/managed-by: Helm
-    app.kubernetes.io/part-of: release-name-kyverno
+    app.kubernetes.io/part-of: eleni-kyverno-release
     app.kubernetes.io/version: 3.1.4
     helm.sh/chart: kyverno-3.1.4
 ---
@@ -32,12 +32,12 @@ apiVersion: v1
 kind: ServiceAccount
 metadata:
   name: kyverno-cleanup-controller
-  namespace: default
+  namespace: kyverno
   labels:
     app.kubernetes.io/component: cleanup-controller
-    app.kubernetes.io/instance: release-name
+    app.kubernetes.io/instance: eleni-kyverno-release
     app.kubernetes.io/managed-by: Helm
-    app.kubernetes.io/part-of: release-name-kyverno
+    app.kubernetes.io/part-of: eleni-kyverno-release
     app.kubernetes.io/version: 3.1.4
     helm.sh/chart: kyverno-3.1.4
 ---
@@ -46,11 +46,11 @@ apiVersion: v1
 kind: ServiceAccount
 metadata:
   name: kyverno-cleanup-jobs
-  namespace: default
+  namespace: kyverno
   labels:
-    app.kubernetes.io/instance: release-name
+    app.kubernetes.io/instance: eleni-kyverno-release
     app.kubernetes.io/managed-by: Helm
-    app.kubernetes.io/part-of: release-name-kyverno
+    app.kubernetes.io/part-of: eleni-kyverno-release
     app.kubernetes.io/version: 3.1.4
     helm.sh/chart: kyverno-3.1.4
 ---
@@ -59,12 +59,12 @@ apiVersion: v1
 kind: ServiceAccount
 metadata:
   name: kyverno-reports-controller
-  namespace: default
+  namespace: kyverno
   labels:
     app.kubernetes.io/component: reports-controller
-    app.kubernetes.io/instance: release-name
+    app.kubernetes.io/instance: eleni-kyverno-release
     app.kubernetes.io/managed-by: Helm
-    app.kubernetes.io/part-of: release-name-kyverno
+    app.kubernetes.io/part-of: eleni-kyverno-release
     app.kubernetes.io/version: 3.1.4
     helm.sh/chart: kyverno-3.1.4
 ---
@@ -72,13 +72,13 @@ metadata:
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: release-name-kyverno
-  namespace: default
+  name: eleni-kyverno-release
+  namespace: kyverno
   labels:
     app.kubernetes.io/component: config
-    app.kubernetes.io/instance: release-name
+    app.kubernetes.io/instance: eleni-kyverno-release
     app.kubernetes.io/managed-by: Helm
-    app.kubernetes.io/part-of: release-name-kyverno
+    app.kubernetes.io/part-of: eleni-kyverno-release
     app.kubernetes.io/version: 3.1.4
     helm.sh/chart: kyverno-3.1.4
 data:
@@ -111,22 +111,22 @@ data:
     [BackgroundScanReport/*,*,*]
     [ClusterBackgroundScanReport,*,*]
     [ClusterBackgroundScanReport/*,*,*]
-    [ClusterRole,*,release-name-kyverno:admission-controller]
-    [ClusterRole,*,release-name-kyverno:admission-controller:core]
-    [ClusterRole,*,release-name-kyverno:admission-controller:additional]
-    [ClusterRole,*,release-name-kyverno:background-controller]
-    [ClusterRole,*,release-name-kyverno:background-controller:core]
-    [ClusterRole,*,release-name-kyverno:background-controller:additional]
-    [ClusterRole,*,release-name-kyverno:cleanup-controller]
-    [ClusterRole,*,release-name-kyverno:cleanup-controller:core]
-    [ClusterRole,*,release-name-kyverno:cleanup-controller:additional]
-    [ClusterRole,*,release-name-kyverno:reports-controller]
-    [ClusterRole,*,release-name-kyverno:reports-controller:core]
-    [ClusterRole,*,release-name-kyverno:reports-controller:additional]
-    [ClusterRoleBinding,*,release-name-kyverno:admission-controller]
-    [ClusterRoleBinding,*,release-name-kyverno:background-controller]
-    [ClusterRoleBinding,*,release-name-kyverno:cleanup-controller]
-    [ClusterRoleBinding,*,release-name-kyverno:reports-controller]
+    [ClusterRole,*,eleni-kyverno-release:admission-controller]
+    [ClusterRole,*,eleni-kyverno-release:admission-controller:core]
+    [ClusterRole,*,eleni-kyverno-release:admission-controller:additional]
+    [ClusterRole,*,eleni-kyverno-release:background-controller]
+    [ClusterRole,*,eleni-kyverno-release:background-controller:core]
+    [ClusterRole,*,eleni-kyverno-release:background-controller:additional]
+    [ClusterRole,*,eleni-kyverno-release:cleanup-controller]
+    [ClusterRole,*,eleni-kyverno-release:cleanup-controller:core]
+    [ClusterRole,*,eleni-kyverno-release:cleanup-controller:additional]
+    [ClusterRole,*,eleni-kyverno-release:reports-controller]
+    [ClusterRole,*,eleni-kyverno-release:reports-controller:core]
+    [ClusterRole,*,eleni-kyverno-release:reports-controller:additional]
+    [ClusterRoleBinding,*,eleni-kyverno-release:admission-controller]
+    [ClusterRoleBinding,*,eleni-kyverno-release:background-controller]
+    [ClusterRoleBinding,*,eleni-kyverno-release:cleanup-controller]
+    [ClusterRoleBinding,*,eleni-kyverno-release:reports-controller]
     [ServiceAccount,default,kyverno-admission-controller]
     [ServiceAccount/*,default,kyverno-admission-controller]
     [ServiceAccount,default,kyverno-background-controller]
@@ -135,16 +135,16 @@ data:
     [ServiceAccount/*,default,kyverno-cleanup-controller]
     [ServiceAccount,default,kyverno-reports-controller]
     [ServiceAccount/*,default,kyverno-reports-controller]
-    [Role,default,release-name-kyverno:admission-controller]
-    [Role,default,release-name-kyverno:background-controller]
-    [Role,default,release-name-kyverno:cleanup-controller]
-    [Role,default,release-name-kyverno:reports-controller]
-    [RoleBinding,default,release-name-kyverno:admission-controller]
-    [RoleBinding,default,release-name-kyverno:background-controller]
-    [RoleBinding,default,release-name-kyverno:cleanup-controller]
-    [RoleBinding,default,release-name-kyverno:reports-controller]
-    [ConfigMap,default,release-name-kyverno]
-    [ConfigMap,default,release-name-kyverno-metrics]
+    [Role,default,eleni-kyverno-release:admission-controller]
+    [Role,default,eleni-kyverno-release:background-controller]
+    [Role,default,eleni-kyverno-release:cleanup-controller]
+    [Role,default,eleni-kyverno-release:reports-controller]
+    [RoleBinding,default,eleni-kyverno-release:admission-controller]
+    [RoleBinding,default,eleni-kyverno-release:background-controller]
+    [RoleBinding,default,eleni-kyverno-release:cleanup-controller]
+    [RoleBinding,default,eleni-kyverno-release:reports-controller]
+    [ConfigMap,default,eleni-kyverno-release]
+    [ConfigMap,default,eleni-kyverno-release-metrics]
     [Deployment,default,kyverno-admission-controller]
     [Deployment/*,default,kyverno-admission-controller]
     [Deployment,default,kyverno-background-controller]
@@ -161,8 +161,8 @@ data:
     [Pod/*,default,kyverno-cleanup-controller-*]
     [Pod,default,kyverno-reports-controller-*]
     [Pod/*,default,kyverno-reports-controller-*]
-    [Job,default,release-name-kyverno-hook-pre-delete]
-    [Job/*,default,release-name-kyverno-hook-pre-delete]
+    [Job,default,eleni-kyverno-release-hook-pre-delete]
+    [Job/*,default,eleni-kyverno-release-hook-pre-delete]
     [NetworkPolicy,default,kyverno-admission-controller]
     [NetworkPolicy/*,default,kyverno-admission-controller]
     [NetworkPolicy,default,kyverno-background-controller]
@@ -179,10 +179,10 @@ data:
     [PodDisruptionBudget/*,default,kyverno-cleanup-controller]
     [PodDisruptionBudget,default,kyverno-reports-controller]
     [PodDisruptionBudget/*,default,kyverno-reports-controller]
-    [Service,default,release-name-kyverno-svc]
-    [Service/*,default,release-name-kyverno-svc]
-    [Service,default,release-name-kyverno-svc-metrics]
-    [Service/*,default,release-name-kyverno-svc-metrics]
+    [Service,default,eleni-kyverno-release-svc]
+    [Service/*,default,eleni-kyverno-release-svc]
+    [Service,default,eleni-kyverno-release-svc-metrics]
+    [Service/*,default,eleni-kyverno-release-svc-metrics]
     [Service,default,kyverno-background-controller-metrics]
     [Service/*,default,kyverno-background-controller-metrics]
     [Service,default,kyverno-cleanup-controller]
@@ -195,7 +195,7 @@ data:
     [ServiceMonitor,default,kyverno-background-controller]
     [ServiceMonitor,default,kyverno-cleanup-controller]
     [ServiceMonitor,default,kyverno-reports-controller]
-    [Secret,default,release-name-kyverno-svc.default.svc.*]
+    [Secret,default,eleni-kyverno-release-svc.default.svc.*]
     [Secret,default,kyverno-cleanup-controller.default.svc.*]
   webhooks: '[{"namespaceSelector": {"matchExpressions": [{"key":"kubernetes.io/metadata.name","operator":"NotIn","values":["default"]}]}}]'
 ---
@@ -203,13 +203,13 @@ data:
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: release-name-kyverno-metrics
-  namespace: default
+  name: eleni-kyverno-release-metrics
+  namespace: kyverno
   labels:
     app.kubernetes.io/component: config
-    app.kubernetes.io/instance: release-name
+    app.kubernetes.io/instance: eleni-kyverno-release
     app.kubernetes.io/managed-by: Helm
-    app.kubernetes.io/part-of: release-name-kyverno
+    app.kubernetes.io/part-of: eleni-kyverno-release
     app.kubernetes.io/version: 3.1.4
     helm.sh/chart: kyverno-3.1.4
 data:
@@ -222,9 +222,9 @@ kind: CustomResourceDefinition
 metadata:
   labels:
     app.kubernetes.io/component: crds
-    app.kubernetes.io/instance: release-name
+    app.kubernetes.io/instance: eleni-kyverno-release
     app.kubernetes.io/managed-by: Helm
-    app.kubernetes.io/part-of: release-name-crds
+    app.kubernetes.io/part-of: eleni-kyverno-release-crds
     app.kubernetes.io/version: 3.1.4
     helm.sh/chart: crds-3.1.4
   annotations:
@@ -560,9 +560,9 @@ kind: CustomResourceDefinition
 metadata:
   labels:
     app.kubernetes.io/component: crds
-    app.kubernetes.io/instance: release-name
+    app.kubernetes.io/instance: eleni-kyverno-release
     app.kubernetes.io/managed-by: Helm
-    app.kubernetes.io/part-of: release-name-crds
+    app.kubernetes.io/part-of: eleni-kyverno-release-crds
     app.kubernetes.io/version: 3.1.4
     helm.sh/chart: crds-3.1.4
   annotations:
@@ -865,9 +865,9 @@ kind: CustomResourceDefinition
 metadata:
   labels:
     app.kubernetes.io/component: crds
-    app.kubernetes.io/instance: release-name
+    app.kubernetes.io/instance: eleni-kyverno-release
     app.kubernetes.io/managed-by: Helm
-    app.kubernetes.io/part-of: release-name-crds
+    app.kubernetes.io/part-of: eleni-kyverno-release-crds
     app.kubernetes.io/version: 3.1.4
     helm.sh/chart: crds-3.1.4
   annotations:
@@ -3376,9 +3376,9 @@ kind: CustomResourceDefinition
 metadata:
   labels:
     app.kubernetes.io/component: crds
-    app.kubernetes.io/instance: release-name
+    app.kubernetes.io/instance: eleni-kyverno-release
     app.kubernetes.io/managed-by: Helm
-    app.kubernetes.io/part-of: release-name-crds
+    app.kubernetes.io/part-of: eleni-kyverno-release-crds
     app.kubernetes.io/version: 3.1.4
     helm.sh/chart: crds-3.1.4
   annotations:
@@ -3715,9 +3715,9 @@ kind: CustomResourceDefinition
 metadata:
   labels:
     app.kubernetes.io/component: crds
-    app.kubernetes.io/instance: release-name
+    app.kubernetes.io/instance: eleni-kyverno-release
     app.kubernetes.io/managed-by: Helm
-    app.kubernetes.io/part-of: release-name-crds
+    app.kubernetes.io/part-of: eleni-kyverno-release-crds
     app.kubernetes.io/version: 3.1.4
     helm.sh/chart: crds-3.1.4
   annotations:
@@ -4020,9 +4020,9 @@ kind: CustomResourceDefinition
 metadata:
   labels:
     app.kubernetes.io/component: crds
-    app.kubernetes.io/instance: release-name
+    app.kubernetes.io/instance: eleni-kyverno-release
     app.kubernetes.io/managed-by: Helm
-    app.kubernetes.io/part-of: release-name-crds
+    app.kubernetes.io/part-of: eleni-kyverno-release-crds
     app.kubernetes.io/version: 3.1.4
     helm.sh/chart: crds-3.1.4
   annotations:
@@ -6531,9 +6531,9 @@ kind: CustomResourceDefinition
 metadata:
   labels:
     app.kubernetes.io/component: crds
-    app.kubernetes.io/instance: release-name
+    app.kubernetes.io/instance: eleni-kyverno-release
     app.kubernetes.io/managed-by: Helm
-    app.kubernetes.io/part-of: release-name-crds
+    app.kubernetes.io/part-of: eleni-kyverno-release-crds
     app.kubernetes.io/version: 3.1.4
     helm.sh/chart: crds-3.1.4
   annotations:
@@ -24297,9 +24297,9 @@ kind: CustomResourceDefinition
 metadata:
   labels:
     app.kubernetes.io/component: crds
-    app.kubernetes.io/instance: release-name
+    app.kubernetes.io/instance: eleni-kyverno-release
     app.kubernetes.io/managed-by: Helm
-    app.kubernetes.io/part-of: release-name-crds
+    app.kubernetes.io/part-of: eleni-kyverno-release-crds
     app.kubernetes.io/version: 3.1.4
     helm.sh/chart: crds-3.1.4
   annotations:
@@ -42066,9 +42066,9 @@ kind: CustomResourceDefinition
 metadata:
   labels:
     app.kubernetes.io/component: crds
-    app.kubernetes.io/instance: release-name
+    app.kubernetes.io/instance: eleni-kyverno-release
     app.kubernetes.io/managed-by: Helm
-    app.kubernetes.io/part-of: release-name-crds
+    app.kubernetes.io/part-of: eleni-kyverno-release-crds
     app.kubernetes.io/version: 3.1.4
     helm.sh/chart: crds-3.1.4
   annotations:
@@ -43093,9 +43093,9 @@ kind: CustomResourceDefinition
 metadata:
   labels:
     app.kubernetes.io/component: crds
-    app.kubernetes.io/instance: release-name
+    app.kubernetes.io/instance: eleni-kyverno-release
     app.kubernetes.io/managed-by: Helm
-    app.kubernetes.io/part-of: release-name-crds
+    app.kubernetes.io/part-of: eleni-kyverno-release-crds
     app.kubernetes.io/version: 3.1.4
     helm.sh/chart: crds-3.1.4
   annotations:
@@ -43508,9 +43508,9 @@ kind: CustomResourceDefinition
 metadata:
   labels:
     app.kubernetes.io/component: crds
-    app.kubernetes.io/instance: release-name
+    app.kubernetes.io/instance: eleni-kyverno-release
     app.kubernetes.io/managed-by: Helm
-    app.kubernetes.io/part-of: release-name-crds
+    app.kubernetes.io/part-of: eleni-kyverno-release-crds
     app.kubernetes.io/version: 3.1.4
     helm.sh/chart: crds-3.1.4
   annotations:
@@ -43876,9 +43876,9 @@ kind: CustomResourceDefinition
 metadata:
   labels:
     app.kubernetes.io/component: crds
-    app.kubernetes.io/instance: release-name
+    app.kubernetes.io/instance: eleni-kyverno-release
     app.kubernetes.io/managed-by: Helm
-    app.kubernetes.io/part-of: release-name-crds
+    app.kubernetes.io/part-of: eleni-kyverno-release-crds
     app.kubernetes.io/version: 3.1.4
     helm.sh/chart: crds-3.1.4
   annotations:
@@ -44241,31 +44241,31 @@ spec:
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
 metadata:
-  name: release-name-kyverno:admission-controller
+  name: eleni-kyverno-release:admission-controller
   labels:
     app.kubernetes.io/component: admission-controller
-    app.kubernetes.io/instance: release-name
+    app.kubernetes.io/instance: eleni-kyverno-release
     app.kubernetes.io/managed-by: Helm
-    app.kubernetes.io/part-of: release-name-kyverno
+    app.kubernetes.io/part-of: eleni-kyverno-release
     app.kubernetes.io/version: 3.1.4
     helm.sh/chart: kyverno-3.1.4
 aggregationRule:
   clusterRoleSelectors:
     - matchLabels:
         app.kubernetes.io/component: admission-controller
-        app.kubernetes.io/instance: release-name
-        app.kubernetes.io/part-of: release-name-kyverno
+        app.kubernetes.io/instance: eleni-kyverno-release
+        app.kubernetes.io/part-of: eleni-kyverno-release
 ---
 # Source: kyverno/templates/admission-controller/clusterrole.yaml
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
 metadata:
-  name: release-name-kyverno:admission-controller:core
+  name: eleni-kyverno-release:admission-controller:core
   labels:
     app.kubernetes.io/component: admission-controller
-    app.kubernetes.io/instance: release-name
+    app.kubernetes.io/instance: eleni-kyverno-release
     app.kubernetes.io/managed-by: Helm
-    app.kubernetes.io/part-of: release-name-kyverno
+    app.kubernetes.io/part-of: eleni-kyverno-release
     app.kubernetes.io/version: 3.1.4
     helm.sh/chart: kyverno-3.1.4
 rules:
@@ -44359,31 +44359,31 @@ rules:
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
 metadata:
-  name: release-name-kyverno:background-controller
+  name: eleni-kyverno-release:background-controller
   labels:
     app.kubernetes.io/component: background-controller
-    app.kubernetes.io/instance: release-name
+    app.kubernetes.io/instance: eleni-kyverno-release
     app.kubernetes.io/managed-by: Helm
-    app.kubernetes.io/part-of: release-name-kyverno
+    app.kubernetes.io/part-of: eleni-kyverno-release
     app.kubernetes.io/version: 3.1.4
     helm.sh/chart: kyverno-3.1.4
 aggregationRule:
   clusterRoleSelectors:
     - matchLabels:
         app.kubernetes.io/component: background-controller
-        app.kubernetes.io/instance: release-name
-        app.kubernetes.io/part-of: release-name-kyverno
+        app.kubernetes.io/instance: eleni-kyverno-release
+        app.kubernetes.io/part-of: eleni-kyverno-release
 ---
 # Source: kyverno/templates/background-controller/clusterrole.yaml
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
 metadata:
-  name: release-name-kyverno:background-controller:core
+  name: eleni-kyverno-release:background-controller:core
   labels:
     app.kubernetes.io/component: background-controller
-    app.kubernetes.io/instance: release-name
+    app.kubernetes.io/instance: eleni-kyverno-release
     app.kubernetes.io/managed-by: Helm
-    app.kubernetes.io/part-of: release-name-kyverno
+    app.kubernetes.io/part-of: eleni-kyverno-release
     app.kubernetes.io/version: 3.1.4
     helm.sh/chart: kyverno-3.1.4
 rules:
@@ -44471,31 +44471,31 @@ rules:
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
 metadata:
-  name: release-name-kyverno:cleanup-controller
+  name: eleni-kyverno-release:cleanup-controller
   labels:
     app.kubernetes.io/component: cleanup-controller
-    app.kubernetes.io/instance: release-name
+    app.kubernetes.io/instance: eleni-kyverno-release
     app.kubernetes.io/managed-by: Helm
-    app.kubernetes.io/part-of: release-name-kyverno
+    app.kubernetes.io/part-of: eleni-kyverno-release
     app.kubernetes.io/version: 3.1.4
     helm.sh/chart: kyverno-3.1.4
 aggregationRule:
   clusterRoleSelectors:
     - matchLabels:
         app.kubernetes.io/component: cleanup-controller
-        app.kubernetes.io/instance: release-name
-        app.kubernetes.io/part-of: release-name-kyverno
+        app.kubernetes.io/instance: eleni-kyverno-release
+        app.kubernetes.io/part-of: eleni-kyverno-release
 ---
 # Source: kyverno/templates/cleanup-controller/clusterrole.yaml
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
 metadata:
-  name: release-name-kyverno:cleanup-controller:core
+  name: eleni-kyverno-release:cleanup-controller:core
   labels:
     app.kubernetes.io/component: cleanup-controller
-    app.kubernetes.io/instance: release-name
+    app.kubernetes.io/instance: eleni-kyverno-release
     app.kubernetes.io/managed-by: Helm
-    app.kubernetes.io/part-of: release-name-kyverno
+    app.kubernetes.io/part-of: eleni-kyverno-release
     app.kubernetes.io/version: 3.1.4
     helm.sh/chart: kyverno-3.1.4
 rules:
@@ -44563,9 +44563,9 @@ kind: ClusterRole
 metadata:
   name: kyverno-cleanup-jobs
   labels:
-    app.kubernetes.io/instance: release-name
+    app.kubernetes.io/instance: eleni-kyverno-release
     app.kubernetes.io/managed-by: Helm
-    app.kubernetes.io/part-of: release-name-kyverno
+    app.kubernetes.io/part-of: eleni-kyverno-release
     app.kubernetes.io/version: 3.1.4
     helm.sh/chart: kyverno-3.1.4
 rules:
@@ -44583,12 +44583,12 @@ rules:
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
 metadata:
-  name: release-name-kyverno:rbac:admin:policies
+  name: eleni-kyverno-release:rbac:admin:policies
   labels:
     app.kubernetes.io/component: rbac
-    app.kubernetes.io/instance: release-name
+    app.kubernetes.io/instance: eleni-kyverno-release
     app.kubernetes.io/managed-by: Helm
-    app.kubernetes.io/part-of: release-name-kyverno
+    app.kubernetes.io/part-of: eleni-kyverno-release
     app.kubernetes.io/version: 3.1.4
     helm.sh/chart: kyverno-3.1.4
     rbac.authorization.k8s.io/aggregate-to-admin: "true"
@@ -44613,12 +44613,12 @@ rules:
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
 metadata:
-  name: release-name-kyverno:rbac:view:policies
+  name: eleni-kyverno-release:rbac:view:policies
   labels:
     app.kubernetes.io/component: rbac
-    app.kubernetes.io/instance: release-name
+    app.kubernetes.io/instance: eleni-kyverno-release
     app.kubernetes.io/managed-by: Helm
-    app.kubernetes.io/part-of: release-name-kyverno
+    app.kubernetes.io/part-of: eleni-kyverno-release
     app.kubernetes.io/version: 3.1.4
     helm.sh/chart: kyverno-3.1.4
     rbac.authorization.k8s.io/aggregate-to-view: "true"
@@ -44639,12 +44639,12 @@ rules:
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
 metadata:
-  name: release-name-kyverno:rbac:admin:policyreports
+  name: eleni-kyverno-release:rbac:admin:policyreports
   labels:
     app.kubernetes.io/component: rbac
-    app.kubernetes.io/instance: release-name
+    app.kubernetes.io/instance: eleni-kyverno-release
     app.kubernetes.io/managed-by: Helm
-    app.kubernetes.io/part-of: release-name-kyverno
+    app.kubernetes.io/part-of: eleni-kyverno-release
     app.kubernetes.io/version: 3.1.4
     helm.sh/chart: kyverno-3.1.4
     rbac.authorization.k8s.io/aggregate-to-admin: "true"
@@ -44667,12 +44667,12 @@ rules:
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
 metadata:
-  name: release-name-kyverno:rbac:view:policyreports
+  name: eleni-kyverno-release:rbac:view:policyreports
   labels:
     app.kubernetes.io/component: rbac
-    app.kubernetes.io/instance: release-name
+    app.kubernetes.io/instance: eleni-kyverno-release
     app.kubernetes.io/managed-by: Helm
-    app.kubernetes.io/part-of: release-name-kyverno
+    app.kubernetes.io/part-of: eleni-kyverno-release
     app.kubernetes.io/version: 3.1.4
     helm.sh/chart: kyverno-3.1.4
     rbac.authorization.k8s.io/aggregate-to-view: "true"
@@ -44691,12 +44691,12 @@ rules:
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
 metadata:
-  name: release-name-kyverno:rbac:admin:reports
+  name: eleni-kyverno-release:rbac:admin:reports
   labels:
     app.kubernetes.io/component: rbac
-    app.kubernetes.io/instance: release-name
+    app.kubernetes.io/instance: eleni-kyverno-release
     app.kubernetes.io/managed-by: Helm
-    app.kubernetes.io/part-of: release-name-kyverno
+    app.kubernetes.io/part-of: eleni-kyverno-release
     app.kubernetes.io/version: 3.1.4
     helm.sh/chart: kyverno-3.1.4
     rbac.authorization.k8s.io/aggregate-to-admin: "true"
@@ -44721,12 +44721,12 @@ rules:
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
 metadata:
-  name: release-name-kyverno:rbac:view:reports
+  name: eleni-kyverno-release:rbac:view:reports
   labels:
     app.kubernetes.io/component: rbac
-    app.kubernetes.io/instance: release-name
+    app.kubernetes.io/instance: eleni-kyverno-release
     app.kubernetes.io/managed-by: Helm
-    app.kubernetes.io/part-of: release-name-kyverno
+    app.kubernetes.io/part-of: eleni-kyverno-release
     app.kubernetes.io/version: 3.1.4
     helm.sh/chart: kyverno-3.1.4
     rbac.authorization.k8s.io/aggregate-to-view: "true"
@@ -44747,12 +44747,12 @@ rules:
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
 metadata:
-  name: release-name-kyverno:rbac:admin:updaterequests
+  name: eleni-kyverno-release:rbac:admin:updaterequests
   labels:
     app.kubernetes.io/component: rbac
-    app.kubernetes.io/instance: release-name
+    app.kubernetes.io/instance: eleni-kyverno-release
     app.kubernetes.io/managed-by: Helm
-    app.kubernetes.io/part-of: release-name-kyverno
+    app.kubernetes.io/part-of: eleni-kyverno-release
     app.kubernetes.io/version: 3.1.4
     helm.sh/chart: kyverno-3.1.4
     rbac.authorization.k8s.io/aggregate-to-admin: "true"
@@ -44774,12 +44774,12 @@ rules:
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
 metadata:
-  name: release-name-kyverno:rbac:view:updaterequests
+  name: eleni-kyverno-release:rbac:view:updaterequests
   labels:
     app.kubernetes.io/component: rbac
-    app.kubernetes.io/instance: release-name
+    app.kubernetes.io/instance: eleni-kyverno-release
     app.kubernetes.io/managed-by: Helm
-    app.kubernetes.io/part-of: release-name-kyverno
+    app.kubernetes.io/part-of: eleni-kyverno-release
     app.kubernetes.io/version: 3.1.4
     helm.sh/chart: kyverno-3.1.4
     rbac.authorization.k8s.io/aggregate-to-view: "true"
@@ -44797,31 +44797,31 @@ rules:
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
 metadata:
-  name: release-name-kyverno:reports-controller
+  name: eleni-kyverno-release:reports-controller
   labels:
     app.kubernetes.io/component: reports-controller
-    app.kubernetes.io/instance: release-name
+    app.kubernetes.io/instance: eleni-kyverno-release
     app.kubernetes.io/managed-by: Helm
-    app.kubernetes.io/part-of: release-name-kyverno
+    app.kubernetes.io/part-of: eleni-kyverno-release
     app.kubernetes.io/version: 3.1.4
     helm.sh/chart: kyverno-3.1.4
 aggregationRule:
   clusterRoleSelectors:
     - matchLabels:
         app.kubernetes.io/component: reports-controller
-        app.kubernetes.io/instance: release-name
-        app.kubernetes.io/part-of: release-name-kyverno
+        app.kubernetes.io/instance: eleni-kyverno-release
+        app.kubernetes.io/part-of: eleni-kyverno-release
 ---
 # Source: kyverno/templates/reports-controller/clusterrole.yaml
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
 metadata:
-  name: release-name-kyverno:reports-controller:core
+  name: eleni-kyverno-release:reports-controller:core
   labels:
     app.kubernetes.io/component: reports-controller
-    app.kubernetes.io/instance: release-name
+    app.kubernetes.io/instance: eleni-kyverno-release
     app.kubernetes.io/managed-by: Helm
-    app.kubernetes.io/part-of: release-name-kyverno
+    app.kubernetes.io/part-of: eleni-kyverno-release
     app.kubernetes.io/version: 3.1.4
     helm.sh/chart: kyverno-3.1.4
 rules:
@@ -44878,64 +44878,64 @@ rules:
 kind: ClusterRoleBinding
 apiVersion: rbac.authorization.k8s.io/v1
 metadata:
-  name: release-name-kyverno:admission-controller
+  name: eleni-kyverno-release:admission-controller
   labels:
     app.kubernetes.io/component: admission-controller
-    app.kubernetes.io/instance: release-name
+    app.kubernetes.io/instance: eleni-kyverno-release
     app.kubernetes.io/managed-by: Helm
-    app.kubernetes.io/part-of: release-name-kyverno
+    app.kubernetes.io/part-of: eleni-kyverno-release
     app.kubernetes.io/version: 3.1.4
     helm.sh/chart: kyverno-3.1.4
 roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: ClusterRole
-  name: release-name-kyverno:admission-controller
+  name: eleni-kyverno-release:admission-controller
 subjects:
   - kind: ServiceAccount
     name: kyverno-admission-controller
-    namespace: default
+    namespace: kyverno
 ---
 # Source: kyverno/templates/background-controller/clusterrolebinding.yaml
 kind: ClusterRoleBinding
 apiVersion: rbac.authorization.k8s.io/v1
 metadata:
-  name: release-name-kyverno:background-controller
+  name: eleni-kyverno-release:background-controller
   labels:
     app.kubernetes.io/component: background-controller
-    app.kubernetes.io/instance: release-name
+    app.kubernetes.io/instance: eleni-kyverno-release
     app.kubernetes.io/managed-by: Helm
-    app.kubernetes.io/part-of: release-name-kyverno
+    app.kubernetes.io/part-of: eleni-kyverno-release
     app.kubernetes.io/version: 3.1.4
     helm.sh/chart: kyverno-3.1.4
 roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: ClusterRole
-  name: release-name-kyverno:background-controller
+  name: eleni-kyverno-release:background-controller
 subjects:
 - kind: ServiceAccount
   name: kyverno-background-controller
-  namespace: default
+  namespace: kyverno
 ---
 # Source: kyverno/templates/cleanup-controller/clusterrolebinding.yaml
 kind: ClusterRoleBinding
 apiVersion: rbac.authorization.k8s.io/v1
 metadata:
-  name: release-name-kyverno:cleanup-controller
+  name: eleni-kyverno-release:cleanup-controller
   labels:
     app.kubernetes.io/component: cleanup-controller
-    app.kubernetes.io/instance: release-name
+    app.kubernetes.io/instance: eleni-kyverno-release
     app.kubernetes.io/managed-by: Helm
-    app.kubernetes.io/part-of: release-name-kyverno
+    app.kubernetes.io/part-of: eleni-kyverno-release
     app.kubernetes.io/version: 3.1.4
     helm.sh/chart: kyverno-3.1.4
 roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: ClusterRole
-  name: release-name-kyverno:cleanup-controller
+  name: eleni-kyverno-release:cleanup-controller
 subjects:
 - kind: ServiceAccount
   name: kyverno-cleanup-controller
-  namespace: default
+  namespace: kyverno
 ---
 # Source: kyverno/templates/cleanup/clusterrolebinding.yaml
 kind: ClusterRoleBinding
@@ -44943,9 +44943,9 @@ apiVersion: rbac.authorization.k8s.io/v1
 metadata:
   name: kyverno-cleanup-jobs
   labels:
-    app.kubernetes.io/instance: release-name
+    app.kubernetes.io/instance: eleni-kyverno-release
     app.kubernetes.io/managed-by: Helm
-    app.kubernetes.io/part-of: release-name-kyverno
+    app.kubernetes.io/part-of: eleni-kyverno-release
     app.kubernetes.io/version: 3.1.4
     helm.sh/chart: kyverno-3.1.4
 roleRef:
@@ -44955,40 +44955,40 @@ roleRef:
 subjects:
   - kind: ServiceAccount
     name: kyverno-cleanup-jobs
-    namespace: default
+    namespace: kyverno
 ---
 # Source: kyverno/templates/reports-controller/clusterrolebinding.yaml
 kind: ClusterRoleBinding
 apiVersion: rbac.authorization.k8s.io/v1
 metadata:
-  name: release-name-kyverno:reports-controller
+  name: eleni-kyverno-release:reports-controller
   labels:
     app.kubernetes.io/component: reports-controller
-    app.kubernetes.io/instance: release-name
+    app.kubernetes.io/instance: eleni-kyverno-release
     app.kubernetes.io/managed-by: Helm
-    app.kubernetes.io/part-of: release-name-kyverno
+    app.kubernetes.io/part-of: eleni-kyverno-release
     app.kubernetes.io/version: 3.1.4
     helm.sh/chart: kyverno-3.1.4
 roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: ClusterRole
-  name: release-name-kyverno:reports-controller
+  name: eleni-kyverno-release:reports-controller
 subjects:
 - kind: ServiceAccount
   name: kyverno-reports-controller
-  namespace: default
+  namespace: kyverno
 ---
 # Source: kyverno/templates/admission-controller/role.yaml
 apiVersion: rbac.authorization.k8s.io/v1
 kind: Role
 metadata:
-  name: release-name-kyverno:admission-controller
-  namespace: default
+  name: eleni-kyverno-release:admission-controller
+  namespace: kyverno
   labels:
     app.kubernetes.io/component: admission-controller
-    app.kubernetes.io/instance: release-name
+    app.kubernetes.io/instance: eleni-kyverno-release
     app.kubernetes.io/managed-by: Helm
-    app.kubernetes.io/part-of: release-name-kyverno
+    app.kubernetes.io/part-of: eleni-kyverno-release
     app.kubernetes.io/version: 3.1.4
     helm.sh/chart: kyverno-3.1.4
 rules:
@@ -45012,8 +45012,8 @@ rules:
       - list
       - watch
     resourceNames:
-      - release-name-kyverno
-      - release-name-kyverno-metrics
+      - eleni-kyverno-release
+      - eleni-kyverno-release-metrics
   - apiGroups:
       - coordination.k8s.io
     resources:
@@ -45041,15 +45041,15 @@ rules:
 apiVersion: rbac.authorization.k8s.io/v1
 kind: Role
 metadata:
-  name: release-name-kyverno:background-controller
+  name: eleni-kyverno-release:background-controller
   labels:
     app.kubernetes.io/component: background-controller
-    app.kubernetes.io/instance: release-name
+    app.kubernetes.io/instance: eleni-kyverno-release
     app.kubernetes.io/managed-by: Helm
-    app.kubernetes.io/part-of: release-name-kyverno
+    app.kubernetes.io/part-of: eleni-kyverno-release
     app.kubernetes.io/version: 3.1.4
     helm.sh/chart: kyverno-3.1.4
-  namespace: default
+  namespace: kyverno
 rules:
   - apiGroups:
       - ''
@@ -45060,8 +45060,8 @@ rules:
       - list
       - watch
     resourceNames:
-      - release-name-kyverno
-      - release-name-kyverno-metrics
+      - eleni-kyverno-release
+      - eleni-kyverno-release-metrics
   - apiGroups:
       - coordination.k8s.io
     resources:
@@ -45092,15 +45092,15 @@ rules:
 apiVersion: rbac.authorization.k8s.io/v1
 kind: Role
 metadata:
-  name: release-name-kyverno:cleanup-controller
+  name: eleni-kyverno-release:cleanup-controller
   labels:
     app.kubernetes.io/component: cleanup-controller
-    app.kubernetes.io/instance: release-name
+    app.kubernetes.io/instance: eleni-kyverno-release
     app.kubernetes.io/managed-by: Helm
-    app.kubernetes.io/part-of: release-name-kyverno
+    app.kubernetes.io/part-of: eleni-kyverno-release
     app.kubernetes.io/version: 3.1.4
     helm.sh/chart: kyverno-3.1.4
-  namespace: default
+  namespace: kyverno
 rules:
   - apiGroups:
       - ''
@@ -45130,8 +45130,8 @@ rules:
       - list
       - watch
     resourceNames:
-      - release-name-kyverno
-      - release-name-kyverno-metrics
+      - eleni-kyverno-release
+      - eleni-kyverno-release-metrics
   - apiGroups:
       - coordination.k8s.io
     resources:
@@ -45154,15 +45154,15 @@ rules:
 apiVersion: rbac.authorization.k8s.io/v1
 kind: Role
 metadata:
-  name: release-name-kyverno:reports-controller
+  name: eleni-kyverno-release:reports-controller
   labels:
     app.kubernetes.io/component: reports-controller
-    app.kubernetes.io/instance: release-name
+    app.kubernetes.io/instance: eleni-kyverno-release
     app.kubernetes.io/managed-by: Helm
-    app.kubernetes.io/part-of: release-name-kyverno
+    app.kubernetes.io/part-of: eleni-kyverno-release
     app.kubernetes.io/version: 3.1.4
     helm.sh/chart: kyverno-3.1.4
-  namespace: default
+  namespace: kyverno
 rules:
   - apiGroups:
       - ''
@@ -45173,8 +45173,8 @@ rules:
       - list
       - watch
     resourceNames:
-      - release-name-kyverno
-      - release-name-kyverno-metrics
+      - eleni-kyverno-release
+      - eleni-kyverno-release-metrics
   - apiGroups:
       - coordination.k8s.io
     resources:
@@ -45197,101 +45197,101 @@ rules:
 kind: RoleBinding
 apiVersion: rbac.authorization.k8s.io/v1
 metadata:
-  name: release-name-kyverno:admission-controller
-  namespace: default
+  name: eleni-kyverno-release:admission-controller
+  namespace: kyverno
   labels:
     app.kubernetes.io/component: admission-controller
-    app.kubernetes.io/instance: release-name
+    app.kubernetes.io/instance: eleni-kyverno-release
     app.kubernetes.io/managed-by: Helm
-    app.kubernetes.io/part-of: release-name-kyverno
+    app.kubernetes.io/part-of: eleni-kyverno-release
     app.kubernetes.io/version: 3.1.4
     helm.sh/chart: kyverno-3.1.4
 roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: Role
-  name: release-name-kyverno:admission-controller
+  name: eleni-kyverno-release:admission-controller
 subjects:
   - kind: ServiceAccount
     name: kyverno-admission-controller
-    namespace: default
+    namespace: kyverno
 ---
 # Source: kyverno/templates/background-controller/rolebinding.yaml
 kind: RoleBinding
 apiVersion: rbac.authorization.k8s.io/v1
 metadata:
-  name: release-name-kyverno:background-controller
+  name: eleni-kyverno-release:background-controller
   labels:
     app.kubernetes.io/component: background-controller
-    app.kubernetes.io/instance: release-name
+    app.kubernetes.io/instance: eleni-kyverno-release
     app.kubernetes.io/managed-by: Helm
-    app.kubernetes.io/part-of: release-name-kyverno
+    app.kubernetes.io/part-of: eleni-kyverno-release
     app.kubernetes.io/version: 3.1.4
     helm.sh/chart: kyverno-3.1.4
-  namespace: default
+  namespace: kyverno
 roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: Role
-  name: release-name-kyverno:background-controller
+  name: eleni-kyverno-release:background-controller
 subjects:
   - kind: ServiceAccount
     name: kyverno-background-controller
-    namespace: default
+    namespace: kyverno
 ---
 # Source: kyverno/templates/cleanup-controller/rolebinding.yaml
 kind: RoleBinding
 apiVersion: rbac.authorization.k8s.io/v1
 metadata:
-  name: release-name-kyverno:cleanup-controller
+  name: eleni-kyverno-release:cleanup-controller
   labels:
     app.kubernetes.io/component: cleanup-controller
-    app.kubernetes.io/instance: release-name
+    app.kubernetes.io/instance: eleni-kyverno-release
     app.kubernetes.io/managed-by: Helm
-    app.kubernetes.io/part-of: release-name-kyverno
+    app.kubernetes.io/part-of: eleni-kyverno-release
     app.kubernetes.io/version: 3.1.4
     helm.sh/chart: kyverno-3.1.4
-  namespace: default
+  namespace: kyverno
 roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: Role
-  name: release-name-kyverno:cleanup-controller
+  name: eleni-kyverno-release:cleanup-controller
 subjects:
   - kind: ServiceAccount
     name: kyverno-cleanup-controller
-    namespace: default
+    namespace: kyverno
 ---
 # Source: kyverno/templates/reports-controller/rolebinding.yaml
 kind: RoleBinding
 apiVersion: rbac.authorization.k8s.io/v1
 metadata:
-  name: release-name-kyverno:reports-controller
+  name: eleni-kyverno-release:reports-controller
   labels:
     app.kubernetes.io/component: reports-controller
-    app.kubernetes.io/instance: release-name
+    app.kubernetes.io/instance: eleni-kyverno-release
     app.kubernetes.io/managed-by: Helm
-    app.kubernetes.io/part-of: release-name-kyverno
+    app.kubernetes.io/part-of: eleni-kyverno-release
     app.kubernetes.io/version: 3.1.4
     helm.sh/chart: kyverno-3.1.4
-  namespace: default
+  namespace: kyverno
 roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: Role
-  name: release-name-kyverno:reports-controller
+  name: eleni-kyverno-release:reports-controller
 subjects:
   - kind: ServiceAccount
     name: kyverno-reports-controller
-    namespace: default
+    namespace: kyverno
 ---
 # Source: kyverno/templates/admission-controller/service.yaml
 apiVersion: v1
 kind: Service
 metadata:
-  name: release-name-kyverno-svc
-  namespace: default
+  name: eleni-kyverno-release-svc
+  namespace: kyverno
   labels:
     app.kubernetes.io/component: admission-controller
-    app.kubernetes.io/instance: release-name
+    app.kubernetes.io/instance: eleni-kyverno-release
     app.kubernetes.io/managed-by: Helm
-    app.kubernetes.io/part-of: release-name-kyverno
+    app.kubernetes.io/part-of: eleni-kyverno-release
     app.kubernetes.io/version: 3.1.4
     helm.sh/chart: kyverno-3.1.4
 spec:
@@ -45302,21 +45302,21 @@ spec:
     name: https
   selector:
     app.kubernetes.io/component: admission-controller
-    app.kubernetes.io/instance: release-name
-    app.kubernetes.io/part-of: release-name-kyverno
+    app.kubernetes.io/instance: eleni-kyverno-release
+    app.kubernetes.io/part-of: eleni-kyverno-release
   type: ClusterIP
 ---
 # Source: kyverno/templates/admission-controller/service.yaml
 apiVersion: v1
 kind: Service
 metadata:
-  name: release-name-kyverno-svc-metrics
-  namespace: default
+  name: eleni-kyverno-release-svc-metrics
+  namespace: kyverno
   labels:
     app.kubernetes.io/component: admission-controller
-    app.kubernetes.io/instance: release-name
+    app.kubernetes.io/instance: eleni-kyverno-release
     app.kubernetes.io/managed-by: Helm
-    app.kubernetes.io/part-of: release-name-kyverno
+    app.kubernetes.io/part-of: eleni-kyverno-release
     app.kubernetes.io/version: 3.1.4
     helm.sh/chart: kyverno-3.1.4
 spec:
@@ -45327,8 +45327,8 @@ spec:
     name: metrics-port
   selector:
     app.kubernetes.io/component: admission-controller
-    app.kubernetes.io/instance: release-name
-    app.kubernetes.io/part-of: release-name-kyverno
+    app.kubernetes.io/instance: eleni-kyverno-release
+    app.kubernetes.io/part-of: eleni-kyverno-release
   type: ClusterIP
 ---
 # Source: kyverno/templates/background-controller/service.yaml
@@ -45336,12 +45336,12 @@ apiVersion: v1
 kind: Service
 metadata:
   name: kyverno-background-controller-metrics
-  namespace: default
+  namespace: kyverno
   labels:
     app.kubernetes.io/component: background-controller
-    app.kubernetes.io/instance: release-name
+    app.kubernetes.io/instance: eleni-kyverno-release
     app.kubernetes.io/managed-by: Helm
-    app.kubernetes.io/part-of: release-name-kyverno
+    app.kubernetes.io/part-of: eleni-kyverno-release
     app.kubernetes.io/version: 3.1.4
     helm.sh/chart: kyverno-3.1.4
 spec:
@@ -45352,8 +45352,8 @@ spec:
     name: metrics-port
   selector:
     app.kubernetes.io/component: background-controller
-    app.kubernetes.io/instance: release-name
-    app.kubernetes.io/part-of: release-name-kyverno
+    app.kubernetes.io/instance: eleni-kyverno-release
+    app.kubernetes.io/part-of: eleni-kyverno-release
   type: ClusterIP
 ---
 # Source: kyverno/templates/cleanup-controller/service.yaml
@@ -45361,12 +45361,12 @@ apiVersion: v1
 kind: Service
 metadata:
   name: kyverno-cleanup-controller
-  namespace: default
+  namespace: kyverno
   labels:
     app.kubernetes.io/component: cleanup-controller
-    app.kubernetes.io/instance: release-name
+    app.kubernetes.io/instance: eleni-kyverno-release
     app.kubernetes.io/managed-by: Helm
-    app.kubernetes.io/part-of: release-name-kyverno
+    app.kubernetes.io/part-of: eleni-kyverno-release
     app.kubernetes.io/version: 3.1.4
     helm.sh/chart: kyverno-3.1.4
 spec:
@@ -45377,8 +45377,8 @@ spec:
     name: https
   selector:
     app.kubernetes.io/component: cleanup-controller
-    app.kubernetes.io/instance: release-name
-    app.kubernetes.io/part-of: release-name-kyverno
+    app.kubernetes.io/instance: eleni-kyverno-release
+    app.kubernetes.io/part-of: eleni-kyverno-release
   type: ClusterIP
 ---
 # Source: kyverno/templates/cleanup-controller/service.yaml
@@ -45386,12 +45386,12 @@ apiVersion: v1
 kind: Service
 metadata:
   name: kyverno-cleanup-controller-metrics
-  namespace: default
+  namespace: kyverno
   labels:
     app.kubernetes.io/component: cleanup-controller
-    app.kubernetes.io/instance: release-name
+    app.kubernetes.io/instance: eleni-kyverno-release
     app.kubernetes.io/managed-by: Helm
-    app.kubernetes.io/part-of: release-name-kyverno
+    app.kubernetes.io/part-of: eleni-kyverno-release
     app.kubernetes.io/version: 3.1.4
     helm.sh/chart: kyverno-3.1.4
 spec:
@@ -45402,8 +45402,8 @@ spec:
     name: metrics-port
   selector:
     app.kubernetes.io/component: cleanup-controller
-    app.kubernetes.io/instance: release-name
-    app.kubernetes.io/part-of: release-name-kyverno
+    app.kubernetes.io/instance: eleni-kyverno-release
+    app.kubernetes.io/part-of: eleni-kyverno-release
   type: ClusterIP
 ---
 # Source: kyverno/templates/reports-controller/service.yaml
@@ -45411,12 +45411,12 @@ apiVersion: v1
 kind: Service
 metadata:
   name: kyverno-reports-controller-metrics
-  namespace: default
+  namespace: kyverno
   labels:
     app.kubernetes.io/component: reports-controller
-    app.kubernetes.io/instance: release-name
+    app.kubernetes.io/instance: eleni-kyverno-release
     app.kubernetes.io/managed-by: Helm
-    app.kubernetes.io/part-of: release-name-kyverno
+    app.kubernetes.io/part-of: eleni-kyverno-release
     app.kubernetes.io/version: 3.1.4
     helm.sh/chart: kyverno-3.1.4
 spec:
@@ -45427,8 +45427,8 @@ spec:
     name: metrics-port
   selector:
     app.kubernetes.io/component: reports-controller
-    app.kubernetes.io/instance: release-name
-    app.kubernetes.io/part-of: release-name-kyverno
+    app.kubernetes.io/instance: eleni-kyverno-release
+    app.kubernetes.io/part-of: eleni-kyverno-release
   type: ClusterIP
 ---
 # Source: kyverno/templates/admission-controller/deployment.yaml
@@ -45436,12 +45436,12 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: kyverno-admission-controller
-  namespace: default
+  namespace: kyverno
   labels:
     app.kubernetes.io/component: admission-controller
-    app.kubernetes.io/instance: release-name
+    app.kubernetes.io/instance: eleni-kyverno-release
     app.kubernetes.io/managed-by: Helm
-    app.kubernetes.io/part-of: release-name-kyverno
+    app.kubernetes.io/part-of: eleni-kyverno-release
     app.kubernetes.io/version: 3.1.4
     helm.sh/chart: kyverno-3.1.4
 spec:
@@ -45454,15 +45454,15 @@ spec:
   selector:
     matchLabels:
       app.kubernetes.io/component: admission-controller
-      app.kubernetes.io/instance: release-name
-      app.kubernetes.io/part-of: release-name-kyverno
+      app.kubernetes.io/instance: eleni-kyverno-release
+      app.kubernetes.io/part-of: eleni-kyverno-release
   template:
     metadata:
       labels:
         app.kubernetes.io/component: admission-controller
-        app.kubernetes.io/instance: release-name
+        app.kubernetes.io/instance: eleni-kyverno-release
         app.kubernetes.io/managed-by: Helm
-        app.kubernetes.io/part-of: release-name-kyverno
+        app.kubernetes.io/part-of: eleni-kyverno-release
         app.kubernetes.io/version: 3.1.4
         helm.sh/chart: kyverno-3.1.4
     spec:
@@ -45508,9 +45508,9 @@ spec:
           - name: KYVERNO_SERVICEACCOUNT_NAME
             value: kyverno-admission-controller
           - name: INIT_CONFIG
-            value: release-name-kyverno
+            value: eleni-kyverno-release
           - name: METRICS_CONFIG
-            value: release-name-kyverno-metrics
+            value: eleni-kyverno-release-metrics
           - name: KYVERNO_NAMESPACE
             valueFrom:
               fieldRef:
@@ -45522,14 +45522,14 @@ spec:
           - name: KYVERNO_DEPLOYMENT
             value: kyverno-admission-controller
           - name: KYVERNO_SVC
-            value: release-name-kyverno-svc
+            value: eleni-kyverno-release-svc
       containers:
         - name: kyverno
           image: "ghcr.io/kyverno/kyverno:v1.11.4"
           imagePullPolicy: IfNotPresent
           args:
-            - --caSecretName=release-name-kyverno-svc.default.svc.kyverno-tls-ca
-            - --tlsSecretName=release-name-kyverno-svc.default.svc.kyverno-tls-pair
+            - --caSecretName=eleni-kyverno-release-svc.default.svc.kyverno-tls-ca
+            - --tlsSecretName=eleni-kyverno-release-svc.default.svc.kyverno-tls-pair
             - --backgroundServiceAccountName=system:serviceaccount:default:kyverno-background-controller
             - --servicePort=443
             - --disableMetrics=false
@@ -45573,9 +45573,9 @@ spec:
             protocol: TCP
           env:
           - name: INIT_CONFIG
-            value: release-name-kyverno
+            value: eleni-kyverno-release
           - name: METRICS_CONFIG
-            value: release-name-kyverno-metrics
+            value: eleni-kyverno-release-metrics
           - name: KYVERNO_NAMESPACE
             valueFrom:
               fieldRef:
@@ -45587,7 +45587,7 @@ spec:
           - name: KYVERNO_SERVICEACCOUNT_NAME
             value: kyverno-admission-controller
           - name: KYVERNO_SVC
-            value: release-name-kyverno-svc
+            value: eleni-kyverno-release-svc
           - name: TUF_ROOT
             value: /.sigstore
           - name: KYVERNO_DEPLOYMENT
@@ -45632,12 +45632,12 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: kyverno-background-controller
-  namespace: default
+  namespace: kyverno
   labels:
     app.kubernetes.io/component: background-controller
-    app.kubernetes.io/instance: release-name
+    app.kubernetes.io/instance: eleni-kyverno-release
     app.kubernetes.io/managed-by: Helm
-    app.kubernetes.io/part-of: release-name-kyverno
+    app.kubernetes.io/part-of: eleni-kyverno-release
     app.kubernetes.io/version: 3.1.4
     helm.sh/chart: kyverno-3.1.4
 spec:
@@ -45650,15 +45650,15 @@ spec:
   selector:
     matchLabels:
       app.kubernetes.io/component: background-controller
-      app.kubernetes.io/instance: release-name
-      app.kubernetes.io/part-of: release-name-kyverno
+      app.kubernetes.io/instance: eleni-kyverno-release
+      app.kubernetes.io/part-of: eleni-kyverno-release
   template:
     metadata:
       labels:
         app.kubernetes.io/component: background-controller
-        app.kubernetes.io/instance: release-name
+        app.kubernetes.io/instance: eleni-kyverno-release
         app.kubernetes.io/managed-by: Helm
-        app.kubernetes.io/part-of: release-name-kyverno
+        app.kubernetes.io/part-of: eleni-kyverno-release
         app.kubernetes.io/version: 3.1.4
         helm.sh/chart: kyverno-3.1.4
     spec:
@@ -45702,9 +45702,9 @@ spec:
           - name: KYVERNO_DEPLOYMENT
             value: kyverno-background-controller
           - name: INIT_CONFIG
-            value: release-name-kyverno
+            value: eleni-kyverno-release
           - name: METRICS_CONFIG
-            value: release-name-kyverno-metrics
+            value: eleni-kyverno-release-metrics
           - name: KYVERNO_POD_NAME
             valueFrom:
               fieldRef:
@@ -45735,12 +45735,12 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: kyverno-cleanup-controller
-  namespace: default
+  namespace: kyverno
   labels:
     app.kubernetes.io/component: cleanup-controller
-    app.kubernetes.io/instance: release-name
+    app.kubernetes.io/instance: eleni-kyverno-release
     app.kubernetes.io/managed-by: Helm
-    app.kubernetes.io/part-of: release-name-kyverno
+    app.kubernetes.io/part-of: eleni-kyverno-release
     app.kubernetes.io/version: 3.1.4
     helm.sh/chart: kyverno-3.1.4
 spec:
@@ -45753,15 +45753,15 @@ spec:
   selector:
     matchLabels:
       app.kubernetes.io/component: cleanup-controller
-      app.kubernetes.io/instance: release-name
-      app.kubernetes.io/part-of: release-name-kyverno
+      app.kubernetes.io/instance: eleni-kyverno-release
+      app.kubernetes.io/part-of: eleni-kyverno-release
   template:
     metadata:
       labels:
         app.kubernetes.io/component: cleanup-controller
-        app.kubernetes.io/instance: release-name
+        app.kubernetes.io/instance: eleni-kyverno-release
         app.kubernetes.io/managed-by: Helm
-        app.kubernetes.io/part-of: release-name-kyverno
+        app.kubernetes.io/part-of: eleni-kyverno-release
         app.kubernetes.io/version: 3.1.4
         helm.sh/chart: kyverno-3.1.4
     spec:
@@ -45806,9 +45806,9 @@ spec:
           - name: KYVERNO_DEPLOYMENT
             value: kyverno-cleanup-controller
           - name: INIT_CONFIG
-            value: release-name-kyverno
+            value: eleni-kyverno-release
           - name: METRICS_CONFIG
-            value: release-name-kyverno-metrics
+            value: eleni-kyverno-release-metrics
           - name: KYVERNO_POD_NAME
             valueFrom:
               fieldRef:
@@ -45871,12 +45871,12 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: kyverno-reports-controller
-  namespace: default
+  namespace: kyverno
   labels:
     app.kubernetes.io/component: reports-controller
-    app.kubernetes.io/instance: release-name
+    app.kubernetes.io/instance: eleni-kyverno-release
     app.kubernetes.io/managed-by: Helm
-    app.kubernetes.io/part-of: release-name-kyverno
+    app.kubernetes.io/part-of: eleni-kyverno-release
     app.kubernetes.io/version: 3.1.4
     helm.sh/chart: kyverno-3.1.4
 spec:
@@ -45889,15 +45889,15 @@ spec:
   selector:
     matchLabels:
       app.kubernetes.io/component: reports-controller
-      app.kubernetes.io/instance: release-name
-      app.kubernetes.io/part-of: release-name-kyverno
+      app.kubernetes.io/instance: eleni-kyverno-release
+      app.kubernetes.io/part-of: eleni-kyverno-release
   template:
     metadata:
       labels:
         app.kubernetes.io/component: reports-controller
-        app.kubernetes.io/instance: release-name
+        app.kubernetes.io/instance: eleni-kyverno-release
         app.kubernetes.io/managed-by: Helm
-        app.kubernetes.io/part-of: release-name-kyverno
+        app.kubernetes.io/part-of: eleni-kyverno-release
         app.kubernetes.io/version: 3.1.4
         helm.sh/chart: kyverno-3.1.4
     spec:
@@ -45952,9 +45952,9 @@ spec:
           - name: KYVERNO_DEPLOYMENT
             value: kyverno-reports-controller
           - name: INIT_CONFIG
-            value: release-name-kyverno
+            value: eleni-kyverno-release
           - name: METRICS_CONFIG
-            value: release-name-kyverno-metrics
+            value: eleni-kyverno-release-metrics
           - name: KYVERNO_POD_NAME
             valueFrom:
               fieldRef:
@@ -45993,12 +45993,12 @@ apiVersion: batch/v1
 kind: CronJob
 metadata:
   name: kyverno-cleanup-admission-reports
-  namespace: default
+  namespace: kyverno
   labels:
     app.kubernetes.io/component: cleanup
-    app.kubernetes.io/instance: release-name
+    app.kubernetes.io/instance: eleni-kyverno-release
     app.kubernetes.io/managed-by: Helm
-    app.kubernetes.io/part-of: release-name-kyverno
+    app.kubernetes.io/part-of: eleni-kyverno-release
     app.kubernetes.io/version: 3.1.4
     helm.sh/chart: kyverno-3.1.4
 spec:
@@ -46044,12 +46044,12 @@ apiVersion: batch/v1
 kind: CronJob
 metadata:
   name: kyverno-cleanup-cluster-admission-reports
-  namespace: default
+  namespace: kyverno
   labels:
     app.kubernetes.io/component: cleanup
-    app.kubernetes.io/instance: release-name
+    app.kubernetes.io/instance: eleni-kyverno-release
     app.kubernetes.io/managed-by: Helm
-    app.kubernetes.io/part-of: release-name-kyverno
+    app.kubernetes.io/part-of: eleni-kyverno-release
     app.kubernetes.io/version: 3.1.4
     helm.sh/chart: kyverno-3.1.4
 spec:
@@ -46094,13 +46094,13 @@ spec:
 apiVersion: v1
 kind: Pod
 metadata:
-  name: release-name-kyverno-admission-controller-liveness
-  namespace: default
+  name: eleni-kyverno-release-admission-controller-liveness
+  namespace: kyverno
   labels:
     app.kubernetes.io/component: test
-    app.kubernetes.io/instance: release-name
+    app.kubernetes.io/instance: eleni-kyverno-release
     app.kubernetes.io/managed-by: Helm
-    app.kubernetes.io/part-of: release-name-kyverno
+    app.kubernetes.io/part-of: eleni-kyverno-release
     app.kubernetes.io/version: 3.1.4
     helm.sh/chart: kyverno-3.1.4
   annotations:
@@ -46133,19 +46133,19 @@ spec:
       command:
         - /bin/sh
         - -c
-        - sleep 20 ; wget -O- -S --no-check-certificate https://release-name-kyverno-svc.default:443/health/liveness
+        - sleep 20 ; wget -O- -S --no-check-certificate https://eleni-kyverno-release-svc.default:443/health/liveness
 ---
 # Source: kyverno/templates/tests/admission-controller-metrics.yaml
 apiVersion: v1
 kind: Pod
 metadata:
-  name: release-name-kyverno-admission-controller-metrics
-  namespace: default
+  name: eleni-kyverno-release-admission-controller-metrics
+  namespace: kyverno
   labels:
     app.kubernetes.io/component: test
-    app.kubernetes.io/instance: release-name
+    app.kubernetes.io/instance: eleni-kyverno-release
     app.kubernetes.io/managed-by: Helm
-    app.kubernetes.io/part-of: release-name-kyverno
+    app.kubernetes.io/part-of: eleni-kyverno-release
     app.kubernetes.io/version: 3.1.4
     helm.sh/chart: kyverno-3.1.4
   annotations:
@@ -46178,19 +46178,19 @@ spec:
       command:
         - /bin/sh
         - -c
-        - sleep 20 ; wget -O- -S --no-check-certificate http://release-name-kyverno-svc-metrics.default:8000/metrics
+        - sleep 20 ; wget -O- -S --no-check-certificate http://eleni-kyverno-release-svc-metrics.default:8000/metrics
 ---
 # Source: kyverno/templates/tests/admission-controller-readiness.yaml
 apiVersion: v1
 kind: Pod
 metadata:
-  name: release-name-kyverno-admission-controller-readiness
-  namespace: default
+  name: eleni-kyverno-release-admission-controller-readiness
+  namespace: kyverno
   labels:
     app.kubernetes.io/component: test
-    app.kubernetes.io/instance: release-name
+    app.kubernetes.io/instance: eleni-kyverno-release
     app.kubernetes.io/managed-by: Helm
-    app.kubernetes.io/part-of: release-name-kyverno
+    app.kubernetes.io/part-of: eleni-kyverno-release
     app.kubernetes.io/version: 3.1.4
     helm.sh/chart: kyverno-3.1.4
   annotations:
@@ -46223,19 +46223,19 @@ spec:
       command:
         - /bin/sh
         - -c
-        - sleep 20 ; wget -O- -S --no-check-certificate https://release-name-kyverno-svc.default:443/health/readiness
+        - sleep 20 ; wget -O- -S --no-check-certificate https://eleni-kyverno-release-svc.default:443/health/readiness
 ---
 # Source: kyverno/templates/tests/cleanup-controller-liveness.yaml
 apiVersion: v1
 kind: Pod
 metadata:
-  name: release-name-kyverno-cleanup-controller-liveness
-  namespace: default
+  name: eleni-kyverno-release-cleanup-controller-liveness
+  namespace: kyverno
   labels:
     app.kubernetes.io/component: test
-    app.kubernetes.io/instance: release-name
+    app.kubernetes.io/instance: eleni-kyverno-release
     app.kubernetes.io/managed-by: Helm
-    app.kubernetes.io/part-of: release-name-kyverno
+    app.kubernetes.io/part-of: eleni-kyverno-release
     app.kubernetes.io/version: 3.1.4
     helm.sh/chart: kyverno-3.1.4
   annotations:
@@ -46274,13 +46274,13 @@ spec:
 apiVersion: v1
 kind: Pod
 metadata:
-  name: release-name-kyverno-cleanup-controller-metrics
-  namespace: default
+  name: eleni-kyverno-release-cleanup-controller-metrics
+  namespace: kyverno
   labels:
     app.kubernetes.io/component: test
-    app.kubernetes.io/instance: release-name
+    app.kubernetes.io/instance: eleni-kyverno-release
     app.kubernetes.io/managed-by: Helm
-    app.kubernetes.io/part-of: release-name-kyverno
+    app.kubernetes.io/part-of: eleni-kyverno-release
     app.kubernetes.io/version: 3.1.4
     helm.sh/chart: kyverno-3.1.4
   annotations:
@@ -46319,13 +46319,13 @@ spec:
 apiVersion: v1
 kind: Pod
 metadata:
-  name: release-name-kyverno-cleanup-controller-readiness
-  namespace: default
+  name: eleni-kyverno-release-cleanup-controller-readiness
+  namespace: kyverno
   labels:
     app.kubernetes.io/component: test
-    app.kubernetes.io/instance: release-name
+    app.kubernetes.io/instance: eleni-kyverno-release
     app.kubernetes.io/managed-by: Helm
-    app.kubernetes.io/part-of: release-name-kyverno
+    app.kubernetes.io/part-of: eleni-kyverno-release
     app.kubernetes.io/version: 3.1.4
     helm.sh/chart: kyverno-3.1.4
   annotations:
@@ -46364,13 +46364,13 @@ spec:
 apiVersion: v1
 kind: Pod
 metadata:
-  name: release-name-kyverno-reports-controller-metrics
-  namespace: default
+  name: eleni-kyverno-release-reports-controller-metrics
+  namespace: kyverno
   labels:
     app.kubernetes.io/component: test
-    app.kubernetes.io/instance: release-name
+    app.kubernetes.io/instance: eleni-kyverno-release
     app.kubernetes.io/managed-by: Helm
-    app.kubernetes.io/part-of: release-name-kyverno
+    app.kubernetes.io/part-of: eleni-kyverno-release
     app.kubernetes.io/version: 3.1.4
     helm.sh/chart: kyverno-3.1.4
   annotations:
@@ -46409,13 +46409,13 @@ spec:
 apiVersion: batch/v1
 kind: Job
 metadata:
-  name: release-name-kyverno-hook-post-upgrade
-  namespace: default
+  name: eleni-kyverno-release-hook-post-upgrade
+  namespace: kyverno
   labels:
     app.kubernetes.io/component: hooks
-    app.kubernetes.io/instance: release-name
+    app.kubernetes.io/instance: eleni-kyverno-release
     app.kubernetes.io/managed-by: Helm
-    app.kubernetes.io/part-of: release-name-kyverno
+    app.kubernetes.io/part-of: eleni-kyverno-release
     app.kubernetes.io/version: 3.1.4
     helm.sh/chart: kyverno-3.1.4
   annotations:
@@ -46474,13 +46474,13 @@ spec:
 apiVersion: batch/v1
 kind: Job
 metadata:
-  name: release-name-kyverno-hook-pre-delete
-  namespace: default
+  name: eleni-kyverno-release-hook-pre-delete
+  namespace: kyverno
   labels:
     app.kubernetes.io/component: hooks
-    app.kubernetes.io/instance: release-name
+    app.kubernetes.io/instance: eleni-kyverno-release
     app.kubernetes.io/managed-by: Helm
-    app.kubernetes.io/part-of: release-name-kyverno
+    app.kubernetes.io/part-of: eleni-kyverno-release
     app.kubernetes.io/version: 3.1.4
     helm.sh/chart: kyverno-3.1.4
   annotations:
@@ -46500,7 +46500,7 @@ spec:
             - sh
             - '-c'
             - |-
-              kubectl scale -n default deployment -l app.kubernetes.io/part-of=release-name-kyverno --replicas=0
+              kubectl scale -n default deployment -l app.kubernetes.io/part-of=eleni-kyverno-release --replicas=0
               sleep 30
               kubectl delete validatingwebhookconfiguration -l webhook.kyverno.io/managed-by=kyverno
               kubectl delete mutatingwebhookconfiguration -l webhook.kyverno.io/managed-by=kyverno
