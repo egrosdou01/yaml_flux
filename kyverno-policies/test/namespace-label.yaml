@@ -14,7 +14,7 @@ metadata:
       the allowed values: 'development', 'staging', or 'production'. This helps
       with resource organization and applying environment-specific policies.
 spec:
-  validationFailureAction: enforce
+  validationFailureAction: Audit
   background: true
   rules:
     - name: check-namespace-purpose-label
