@@ -15,7 +15,7 @@ metadata:
       deployment from consuming all available resources and to ensure Quality of
       Service (QoS) for the deployment.
 spec:
-  validationFailureAction: enforce
+  validationFailureAction: Enforce
   background: true
   rules:
     - name: check-nginx-resources
